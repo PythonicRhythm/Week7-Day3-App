@@ -23,8 +23,10 @@
       </div>
       <div class="user-repo" *ngFor="let repo of userRepos">
         <a href="{{repo.repoURL}}"><h2 class="repo-title">{{repo.name}}</h2></a>
+        <p class="flex-text" *ngIf="repo.fork">FORK</p>
         <p class="flex-text">Creation: {{repo.creationDate}}</p>
         <p class="flex-text">Updated: {{repo.updatedDate}}</p>
+        <p class="flex-text" *ngIf="repo.language != null" >Language: {{repo.language}}</p>
         <p class="description">Description</p>
         <div class="description-box">
           <p>{{repo.description ? repo.description : "No description was made."}}</p>

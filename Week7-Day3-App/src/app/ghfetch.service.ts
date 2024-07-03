@@ -19,7 +19,7 @@ export class GhfetchService {
       headers: {
         'X-GitHub-Api-Version': '2022-11-28'
       }
-    })
+    });
 
     console.log(response);
     if(response.status == 200) {
@@ -53,7 +53,7 @@ export class GhfetchService {
       headers: {
         'X-GitHub-Api-Version': '2022-11-28'
       }
-    })
+    });
 
     console.log(response);
     if(response.status == 200) {
@@ -61,20 +61,26 @@ export class GhfetchService {
       let repoList: { 
         name: any;
         description: any;
+        language: any;
+        fork: any;
         repoURL: any; 
         creationDate: any; 
-        updatedDate: any; 
+        updatedDate: any;
+        contributors: any;
       } [] = [];
 
       response.data.forEach((element:any) => {
         let apiData = {
           name: element.name,
           description: element.description,
+          language: element.language,
+          fork: element.fork,
           repoURL: element.html_url,
           creationDate: element.created_at.split("T")[0],
           updatedDate: element.updated_at.split("T")[0],
+          contributors: ""
         };
-
+        
         repoList.push(apiData);
       });
       
@@ -85,6 +91,28 @@ export class GhfetchService {
     }
     else {
       return 404
+    }
+  }
+
+  async getContributors(userID:any, projName:any) {
+    const response = await this.octokit.request('GET /repos/{account_id}/{project_name}/contributors', {
+      account_id: userID,
+      project_name: projName,
+      headers: {
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    });
+
+    // console.log(response.status);
+    if(response.status == 200) {
+      let contributors: any[] = [];
+      response.data.forEach((element:any) => {
+        contributors.push(element.avatar_url);
+      });
+      return contributors;
+    }
+    else {
+      return [];
     }
   }
 }
