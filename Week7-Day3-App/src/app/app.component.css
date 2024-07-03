@@ -31,9 +31,16 @@ body {
     background-color: rgb(43,49,55);
     color: rgb(250,251,252);
     width: 100%;
-    padding-top: 30px;
-    padding-bottom: 30px;
-    gap: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    gap: 30px;
+}
+
+.user-information {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 80%;
+    gap: 40px;
 }
 
 .form-container {
@@ -98,9 +105,20 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgb(36,41,46);
-    border-radius: 5px;
-    padding: 10px;
+    border: 1px solid rgb(24, 27, 31);
+    border-radius: 10px;
+    background-color: rgb(36,41,46);
+    padding: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* max-width: 250px; */
+    font-family: monospace;
+    transition: ease 0.25s;
+}
+
+.user-profile:hover {
+    -webkit-transform: scale(1.05);
+    border-radius: 20px;
 }
 
 .user-profile > p {
@@ -113,10 +131,12 @@ body {
     width: 150px;
     border-radius: 8px;
     transition: ease 0.5s;
+    border: 2px solid rgba(0, 0, 0, 0);
 }
 
 .avatar-pic:hover {
     -webkit-transform: scale(1.05);
+    border: 2px solid rgb(24, 27, 31);
 }
 
 .follow-section {
@@ -132,12 +152,72 @@ body {
     padding: 0px;
 }
 
+.user-repo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    border: 1px solid rgb(24, 27, 31);
+    border-radius: 10px;
+    background-color: rgb(36,41,46);
+    padding: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+    /* max-width: 250px; */
+    color: rgb(255,255,255);
+    font-family: monospace;
+    transition: ease 0.25s;
+}
+
+.user-repo:hover {
+    -webkit-transform: scale(1.05);
+    border-radius: 20px;
+}
+
+.flex-text {
+    margin: 0px;
+    margin-bottom: 5px;
+    padding: 0px;
+}
+
+.user-repo > a {
+    text-decoration: none;
+    color: rgb(250,251,252);
+}
+
+.repo-title {
+    margin-top: 2px;
+    transition: ease 0.25s;
+}
+
+.repo-title:hover {
+    -webkit-transform: scale(1.1);
+    text-decoration: underline;
+}
+
+.description {
+    margin: 0px;
+    padding-top: 10px;
+    margin-bottom: 8px;
+    text-decoration: underline;
+}
+
+.description-box {
+    border: 1px solid rgb(36,41,46);
+    background-color: rgb(43,49,55);
+    flex-grow: 1;
+    border-radius: 10px;
+    width: 90%;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .footer {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     background-color: rgb(36,41,46);
-    color: rgb(250,251,252);
+    color: rgb(255,255,255);
     width: 100%;
 }

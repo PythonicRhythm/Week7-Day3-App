@@ -46,4 +46,45 @@ export class GhfetchService {
       return 404
     }
   }
+
+  async getUserRepos(userID:any) {
+    const response = await this.octokit.request('GET /users/{account_id}/repos', {
+      account_id: userID,
+      headers: {
+        'X-GitHub-Api-Version': '2022-11-28'
+      }
+    })
+
+    console.log(response);
+    if(response.status == 200) {
+
+      let repoList: { 
+        name: any;
+        description: any;
+        repoURL: any; 
+        creationDate: any; 
+        updatedDate: any; 
+      } [] = [];
+
+      response.data.forEach((element:any) => {
+        let apiData = {
+          name: element.name,
+          description: element.description,
+          repoURL: element.html_url,
+          creationDate: element.created_at.split("T")[0],
+          updatedDate: element.updated_at.split("T")[0],
+        };
+
+        repoList.push(apiData);
+      });
+      
+      return repoList;
+    }
+    else if (response.status == 401) {
+      return 401;
+    }
+    else {
+      return 404
+    }
+  }
 }

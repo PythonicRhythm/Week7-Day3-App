@@ -9,16 +9,27 @@
         <button class="gh-search-button" type="submit">Check GH User</button>
       </form>
     </div>
-    <div class="user-profile" *ngIf="userData != null && userData != undefined">
-      <a href="{{userData.ghprofileURL}}"><img class="avatar-pic" src="{{userData.avatar}}"/></a>
-      <h2>{{userData.login}}</h2>
-      <p>({{userData.name}})</p>
-      <p>Creation: {{userData.creationDate}}</p>
-      <div class="follow-section">
-        <p>Followers: {{userData.followers}}</p>
-        <p>Following: {{userData.following}}</p>
+    <div class="user-information">
+      <div class="user-profile" *ngIf="userData != null && userData != undefined">
+        <a href="{{userData.ghprofileURL}}"><img class="avatar-pic" src="{{userData.avatar}}"/></a>
+        <h2>{{userData.login}}</h2>
+        <p>({{userData.name}})</p>
+        <p>Creation: {{userData.creationDate}}</p>
+        <div class="follow-section">
+          <p>Followers: {{userData.followers}}</p>
+          <p>Following: {{userData.following}}</p>
+        </div>
+        <p>Public Repos: {{userData.public_repo_amount}}</p>
       </div>
-      <p>Public Repos: {{userData.public_repo_amount}}</p>
+      <div class="user-repo" *ngFor="let repo of userRepos">
+        <a href="{{repo.repoURL}}"><h2 class="repo-title">{{repo.name}}</h2></a>
+        <p class="flex-text">Creation: {{repo.creationDate}}</p>
+        <p class="flex-text">Updated: {{repo.updatedDate}}</p>
+        <p class="description">Description</p>
+        <div class="description-box">
+          <p>{{repo.description ? repo.description : "No description was made."}}</p>
+        </div>
+      </div>
     </div>
   </div>
   <div class="footer">
