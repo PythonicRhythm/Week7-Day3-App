@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Octokit } from '@octokit/core';
+import { environment } from '../environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,7 @@ import { Octokit } from '@octokit/core';
 export class GhfetchService {
 
   private octokit = new Octokit({
-    auth: ''
+    auth: environment.apikey
   })
 
   constructor() { }
