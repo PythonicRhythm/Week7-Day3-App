@@ -9,6 +9,7 @@ body {
     align-items: center;
     justify-content: flex-start;
     height: 100vh;
+    font-family: monospace;
 }
 
 .nav {
@@ -38,6 +39,7 @@ body {
    border: 1px solid rgb(36,41,46);
    padding: 20px;
    border-radius: 10px;
+   font-family: monospace;
 }
 
 .gh-search {
@@ -46,6 +48,48 @@ body {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    font-family: monospace;
+}
+
+.acc-id {
+    font-family: monospace;
+    padding: 6px;
+    outline-style: none;
+    border: 1px solid rgb(36,41,46);
+    border-radius: 5px;
+    transition: ease 0.25s;
+    background-color: rgb(71, 80, 90);
+    color: rgb(250,251,252); 
+}
+
+.acc-id::placeholder {
+    color: rgb(250,251,252);
+}
+
+.acc-id:hover {
+    -webkit-transform: scale(1.05);
+}
+
+.acc-id:focus-within {
+    -webkit-transform: scale(1.05);
+}
+
+.gh-search-button {
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+    background-color: rgb(45,186,78);
+    color: rgb(255,255,255);
+    font-weight: bold;
+    font-size: 20px;
+    font-family: monospace;
+    transition: ease 0.25s;
+}
+
+.gh-search-button:hover {
+    cursor: pointer;
+    background-color: rgb(39, 161, 67);
+    -webkit-transform: scale(1.05);
 }
 
 .footer {
