@@ -11,7 +11,7 @@
     </div>
     <div class="user-information">
       <div class="user-profile" *ngIf="userData != null && userData != undefined">
-        <a href="{{userData.ghprofileURL}}"><img class="avatar-pic" src="{{userData.avatar}}"/></a>
+        <a href="{{userData.ghprofileURL}}" target="_blank"><img class="avatar-pic" src="{{userData.avatar}}"/></a>
         <h2>{{userData.login}}</h2>
         <p>({{userData.name}})</p>
         <p>Creation: {{userData.creationDate}}</p>
@@ -22,7 +22,7 @@
         <p>Public Repos: {{userData.public_repo_amount}}</p>
       </div>
       <div class="user-repo" *ngFor="let repo of userRepos">
-        <a href="{{repo.repoURL}}"><h2 class="repo-title">{{repo.name}}</h2></a>
+        <a href="{{repo.repoURL}}" target="_blank"><h2 class="repo-title">{{repo.name}}</h2></a>
         <p class="flex-text" *ngIf="repo.fork">FORK</p>
         <p class="flex-text">Creation: {{repo.creationDate}}</p>
         <p class="flex-text">Updated: {{repo.updatedDate}}</p>
