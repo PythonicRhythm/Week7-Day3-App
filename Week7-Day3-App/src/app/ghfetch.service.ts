@@ -23,7 +23,21 @@ export class GhfetchService {
 
     console.log(response);
     if(response.status == 200) {
-      return response.data;
+      
+      let apiData = {
+        login: response.data.login,
+        name: response.data.name,
+        avatar: response.data.avatar_url,
+        ghprofileURL: response.data.html_url,
+        creationDate: response.data.created_at,
+        followers: response.data.followers,
+        following: response.data.following,
+        repos: response.data.repos_url,
+        public_repo_amount: response.data.public_repos,
+        orgs: response.data.organizations_url
+      };
+      
+      return apiData;
     }
     else if (response.status == 401) {
       return 401;

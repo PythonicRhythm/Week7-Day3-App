@@ -8,6 +8,9 @@
         <input class="acc-id" type="text" name="acc-id" placeholder="Enter GH Id..." required [(ngModel)]="userID">
         <button class="gh-search-button" type="submit">Check GH User</button>
       </form>
+      <div class="user-profile" *ngIf="userData != null && userData != undefined">
+        
+      </div>
     </div>
   </div>
   <div class="footer">
