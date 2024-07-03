@@ -29,7 +29,7 @@ export class GhfetchService {
         name: response.data.name,
         avatar: response.data.avatar_url,
         ghprofileURL: response.data.html_url,
-        creationDate: response.data.created_at,
+        creationDate: response.data.created_at.split("T")[0],
         followers: response.data.followers,
         following: response.data.following,
         repos: response.data.repos_url,
