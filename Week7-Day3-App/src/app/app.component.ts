@@ -9,11 +9,12 @@ import { GhfetchService } from './ghfetch.service';
 export class AppComponent {
   title = 'Week7-Day3-App';
   userData:any;
+  userID:any;
 
   constructor(private ghfetch: GhfetchService) {}
 
-  async getUserRepo() {
-    const data = await this.ghfetch.getUserProfile();
+  async getUserProfile() {
+    const data = await this.ghfetch.getUserProfile(this.userID);
     if(data == 404) {
       console.log("Not Found.");
       this.userData = "";

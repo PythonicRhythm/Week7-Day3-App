@@ -24,12 +24,28 @@ body {
 .body-area {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
     flex-grow: 1;
     background-color: rgb(43,49,55);
     color: rgb(250,251,252);
     width: 100%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.form-container {
+   border: 1px solid rgb(36,41,46);
+   padding: 20px;
+   border-radius: 10px;
+}
+
+.gh-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 .footer {

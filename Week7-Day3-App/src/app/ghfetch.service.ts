@@ -13,9 +13,9 @@ export class GhfetchService {
 
   constructor() { }
 
-  async getUserProfile() {
+  async getUserProfile(userID:any) {
     const response = await this.octokit.request('GET /users/{account_id}', {
-      account_id: 'asdfasdfasldhflasjdhflajsdhfljasdh',
+      account_id: userID,
       headers: {
         'X-GitHub-Api-Version': '2022-11-28'
       }
